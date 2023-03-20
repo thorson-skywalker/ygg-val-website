@@ -11,5 +11,9 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../client/layouts/home.html'))
 });
 
+app.get('/api/heroimage', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/assets/images/hero_2.jpeg'))
+})
+
 // written to finally run express and recieve a callback
 app.listen(PORT, () => console.log('App listening on PORT ' + PORT));
