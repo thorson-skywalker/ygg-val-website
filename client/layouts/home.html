@@ -13,9 +13,13 @@
                   integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
                   crossorigin="anonymous"
             />
+            <link 
+                href="../assets/css/home.css"
+                rel="stylesheet"
+            />
             <title>Document</title>
       </head>
-      <body>
+      <body class="bg-black bg-gradient">
             <header class="border-bottom row bg-black bg-gradient">
                   <h1 class="navbar-brand my-5 mx-5 fs-4 fw-light col-lg-6">
                         <a class="text-light text-decoration-none" href="/"
@@ -41,7 +45,15 @@
                         </li>
                   </ul>
             </header>
-            <main style="background-image:url('/api/heroimage') ; background-repeat: no-repeat; background-size: cover; height: 800px;">
+            <main style="background-image:url('/api/heroimage') ; background-repeat: no-repeat; background-size: contain; background-position: center;  height: 900px;  overflow-y: scroll;">
             </main>
+            <footer class="border-top row bg-black bg-gradient">
+                <div class="container col-lg-6">
+                    <p class="my-5 mx-5 fs-4 fw-light text-light">Created by Thorson & cchester11</p>
+                </div>
+                <div class="container col-lg-5">
+                    <p class="my-5 mx-5 fs-4 fw-light text-light">Github</p>
+                </div>
+            </footer>
       </body>
 </html>
