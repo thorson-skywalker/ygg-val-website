@@ -1,5 +1,4 @@
-// dotenv dependency loads env variables
-// sequelize dependency compiles connection code for backend connection to db
+// db connection dependencies
 const dotenv = require('dotenv');
 const Sequelize = require('sequelize');
 

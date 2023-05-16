@@ -5,10 +5,10 @@ const path = require('path')
 
 // static routes to frontend html
 router.get('/', (req, res) => {
-      res.sendFile(path.join(__dirname, '../client/layouts/home.html'))
+      res.sendFile(path.join(__dirname, '../../../client/layouts/home.html'))
 });
 router.get('/api/heroimage', (req, res) => {
-      res.sendFile(path.join(__dirname, '../client/assets/images/hero_2.jpeg'))
+      res.sendFile(path.join(__dirname, '../../../client/assets/images/hero_2.jpeg'))
 })
 
 module.exports = router;

@@ -1,16 +1,12 @@
-const { DataTypes, Model } = require('sequelize');
-const sequelize = require('../config/connection.js')
+const { DataTypes } = require('sequelize');
+const { sequelize } = require('../config/connection.js')
 
-class Users extends Model {
-      // hooks can be written here
-      // see cchester11 github repo Just Tech News for examples
-}
-
-Users.init(
+const users = sequelize.define('Users',
       {
             username: {
                   type: DataTypes.STRING(50),
-                  allowNull: false
+                  allowNull: false,
+                  unique: true
             },
             password: {
                   type: DataTypes.STRING(255),
@@ -20,17 +16,11 @@ Users.init(
                   type: DataTypes.STRING(100),
                   allowNull: false
             }
-      },
-      {
-            sequelize,
-            modelName: 'Users',
-            underscored: true
-      }
-)
+})
 
 // write queries to Users table below
 const sign_up_query = (username, password, salt) => {
-      Users.create({
+      users.create({
             username: username,
             password: password,
             salt: salt
@@ -43,4 +33,4 @@ const sign_up_query = (username, password, salt) => {
             })
 }
 
-module.exports = { Users, sign_up_query };
+module.exports = { users, sign_up_query };
