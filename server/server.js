@@ -1,31 +1,23 @@
-// server dependency and initiation of express dependency
+// server dependencies
 const express = require('express')
 const app = express()
-
-// dotenv dependency for loading env variables and load of env variables subsequently
 const dotenv = require('dotenv')
 dotenv.config()
-
-// import db connection file
 const sequelize = require('./config/connection.js')
-
-// if a web service is not found, app will run locally on PORT 4001 @ (localhost:4001)
 const PORT = process.env.PORT
-
-// library used to write paths to below files in below routes
 const path = require('path')
 
-// static routes to frontend html
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/layouts/home.html'))
-});
-app.get('/api/heroimage', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/assets/images/hero_2.jpeg'))
-})
+// middleware
+app.use(express.json())
+app.use(express.static(path.join(__dirname, 'public')))
+app.use(require('./routes'))
 
+// authentication
 sequelize.connection()
-// written to finally run express and recieve a callback
-sequelize.sequelize.sync()
+// connect to db and serve site to browser
+sequelize.sequelize.sync({
+    force: false
+})
 .then(() => {
     if(process.env.NODE_ENV==='local') {
         app.listen(4001, () => {
