@@ -20,7 +20,7 @@ const users = sequelize.define('Users',
 
 // write queries to Users table below
 const sign_up_query = (username, password, salt) => {
-      users.create({
+      return users.create({
             username: username,
             password: password,
             salt: salt
