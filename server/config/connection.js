@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === 'local') {
             dialect: 'mysql',
             define: {
                   freezeTableName: true,
-                  timestamps: true
+                  timestamps: false
             }
       })
 
